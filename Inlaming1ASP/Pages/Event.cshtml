@@ -21,6 +21,7 @@
                 @Html.DisplayNameFor(model => model.Event[0].SpotsAvailable)
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -42,8 +43,11 @@
                 @Html.DisplayFor(modelItem => item.SpotsAvailable)
             </td>
             <td>
-                
-                <a asp-page="./JoinEvent" class="bg-dark text-light rounded shadow p-2" asp-route-id="@item.Id">Join</a> 
+
+                <a asp-page="./JoinEvent" class="bg-dark text-light rounded shadow p-2 text-decoration-none" asp-route-id="@item.Id">Join</a>
+            </td>
+            <td>
+                <a asp-page="/Details" class="bg-dark text-light rounded shadow p-2 text-decoration-none" asp-route-id="@item.Id">Details</a>
             </td>
         </tr>
 }
