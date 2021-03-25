@@ -26,7 +26,7 @@ namespace Inlamning1ASP
             using (var scope = host.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<EventsDbContext>();
-                
+                /*
                              context.Attendees.AddRange(new List<Attendee>()
                                  {
                                      new Attendee(){Name="Roberta", Email="roberta@gmail.com", PhoneNumber="843749937"},
@@ -42,7 +42,7 @@ namespace Inlamning1ASP
                                  {
                                      new Organizer(){Name="GotiT", Email="gotit@email.com", PhoneNumber="836738847"},
                                  });
-                               
+                               */
 
                 context.SaveChanges();
             }

@@ -1,9 +1,7 @@
 ﻿@page
 @model Inlamning1ASP.Pages.EventModel
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -15,9 +13,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Event[0].Place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].Address)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Event[0].Date)
@@ -41,18 +36,14 @@
                 @Html.DisplayFor(modelItem => item.Place)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SpotsAvailable)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./JoinEvent" asp-route-id="@item.Id">Join</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                
+               | <a asp-page="./JoinEvent" asp-route-id="@item.Id">Join</a> |
             </td>
         </tr>
 }

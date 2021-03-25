@@ -1,14 +1,12 @@
 ﻿@page
 @model Inlamning1ASP.Pages.MyEventModel
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.JoinEvent[0].Event)
+                @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Date)
