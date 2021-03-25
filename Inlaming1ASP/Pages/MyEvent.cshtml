@@ -1,0 +1,32 @@
+﻿@page
+@model Inlamning1ASP.Pages.MyEventModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JoinEvent[0].Event)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Date)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.JoinEvent)
+    {
+        <tr>
+            <td>
+                <a asp-page="../Events/Details" asp-route-id="@item.EventId">@Html.DisplayFor(modelItem => item.Event.Title)</a>
+            </td>
+            <td>
+                @item.Event.Date.ToLongDateString()
+            </td>
+            
+        </tr>
+    }
+    </tbody>
+</table>
