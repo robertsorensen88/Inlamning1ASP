@@ -33,8 +33,8 @@ namespace Inlamning1ASP
                                  });
                                  context.Events.AddRange(new List<Event>()
                                  {
-                                     new Event(){Title="Iron Maiden", Description="Consert", Place="Ullevi", Date= new DateTime(2021,8,21), SpotsAvailable= 80 },
-                                     new Event(){Title="Metallica", Description="Consert", Place="Ullevi", Date= new DateTime(2021,6,21), SpotsAvailable= 80 },
+                                     new Event(){Title="Iron Maiden", Description="Concert", Place="Ullevi", Date= new DateTime(2021,8,21), SpotsAvailable= 80 },
+                                     new Event(){Title="Metallica", Description="Concert", Place="Ullevi", Date= new DateTime(2021,6,21), SpotsAvailable= 80 },
                                      new Event(){Title="Fotboll", Description="Fotbollsmatch", Place="Ullevi", Date= new DateTime(2021,3,21), SpotsAvailable= 80 },
                                      new Event(){Title="SpeedWay", Description="VM", Place="Ullevi", Date= new DateTime(2021,5,21), SpotsAvailable= 80 },
                                  });
