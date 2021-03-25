@@ -1,7 +1,7 @@
 ﻿@page
 @model Inlamning1ASP.Pages.EventModel
 
-
+<h1>Events</h1>
 <table class="table">
     <thead>
         <tr>
@@ -36,14 +36,14 @@
                 @Html.DisplayFor(modelItem => item.Place)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @item.Date.ToLongDateString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SpotsAvailable)
             </td>
             <td>
                 
-               | <a asp-page="./JoinEvent" asp-route-id="@item.Id">Join</a> |
+                <a asp-page="./JoinEvent" class="bg-dark text-light rounded shadow p-2" asp-route-id="@item.Id">Join</a> 
             </td>
         </tr>
 }
