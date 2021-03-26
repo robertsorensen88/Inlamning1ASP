@@ -1,5 +1,5 @@
 ﻿@page
-@model Inlamning1ASP.Pages.JoinEventModel
+@model Inlamning1ASP.Pages.JoinEventDetailsModel
 
 <div>
     <h4>Event</h4>
@@ -24,12 +24,6 @@
             @Html.DisplayFor(model => model.Event.Place)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Event.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Event.Address)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Event.Date)
         </dt>
         <dd class="col-sm-10">
@@ -44,12 +38,6 @@
     </dl>
 </div>
 <div>
-    
-        <form method="post">
-            
-                <input type="submit" asp-route-id="@Model.Event.Id" class="btn bg-dark text-light" value="@Model.message"/>
-            
- 
-        </form>
-   
+    <a asp-page="./MyEvent" class="bg-dark text-light rounded shadow p-2 text-decoration-none">@Model.message</a> 
+    <a asp-page="./Event" class="bg-dark text-light rounded shadow p-2 text-decoration-none">Back to Events</a>
 </div>

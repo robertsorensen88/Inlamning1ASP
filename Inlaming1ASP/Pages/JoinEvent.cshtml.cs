@@ -15,8 +15,8 @@ namespace Inlamning1ASP.Pages
     public class JoinEventModel : PageModel
     {
         private readonly EventsDbContext _context;
-        public string message = "";
-        public string newhidden = "";
+        public string message { get; set; }
+        
         public JoinEventModel(EventsDbContext context)
         {
             _context = context;
@@ -46,7 +46,7 @@ namespace Inlamning1ASP.Pages
         public async Task<IActionResult> OnPostAsync(int? id)
         {
 
-            JoinEvent joinsEvent = new JoinEvent ()
+            JoinEvent joinsEvent = new()
             {
                 Attendee = await _context.Attendees.Where(a => a.Id == 1).FirstOrDefaultAsync(),
                 Event = await _context.Events.Where(e => e.Id == id).FirstOrDefaultAsync()
@@ -58,9 +58,9 @@ namespace Inlamning1ASP.Pages
 
             await _context.SaveChangesAsync();
             message = "My Events";
-            newhidden = "hidden";
+            
 
-            return RedirectToPage("/JoinEvent", new { id = id } );
+            return RedirectToPage("/JoinEventDetails", new { id = id} );
         }
     }
 }
