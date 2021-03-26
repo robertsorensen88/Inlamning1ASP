@@ -12,18 +12,17 @@ namespace Inlamning1ASP.Pages
 {
     public class JoinEventDetailsModel : PageModel
     {
-        private readonly Inlamning1ASP.Data.EventsDbContext _context;
+        private readonly EventsDbContext _context;
 
-        public JoinEventDetailsModel(Inlamning1ASP.Data.EventsDbContext context)
+        public JoinEventDetailsModel(EventsDbContext context)
         {
             _context = context;
         }
 
         public Event Event { get; set; }
-        public string message { get; set; }
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            message = "My Events";
             if (id == null)
             {
                 return NotFound();

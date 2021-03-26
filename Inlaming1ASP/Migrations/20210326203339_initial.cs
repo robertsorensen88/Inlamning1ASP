@@ -87,25 +87,25 @@ namespace Inlamning1ASP.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "JoinEvents",
+                name: "AttendeeEvents",
                 columns: table => new
                 {
-                    JoinEventId = table.Column<int>(type: "int", nullable: false)
+                    AttendeeEventId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AttendeeId = table.Column<int>(type: "int", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JoinEvents", x => x.JoinEventId);
+                    table.PrimaryKey("PK_AttendeeEvents", x => x.AttendeeEventId);
                     table.ForeignKey(
-                        name: "FK_JoinEvents_Attendees_AttendeeId",
+                        name: "FK_AttendeeEvents_Attendees_AttendeeId",
                         column: x => x.AttendeeId,
                         principalTable: "Attendees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_JoinEvents_Events_EventId",
+                        name: "FK_AttendeeEvents_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "Id",
@@ -118,19 +118,19 @@ namespace Inlamning1ASP.Migrations
                 column: "EventsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Events_OrganizerId",
-                table: "Events",
-                column: "OrganizerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_JoinEvents_AttendeeId",
-                table: "JoinEvents",
+                name: "IX_AttendeeEvents_AttendeeId",
+                table: "AttendeeEvents",
                 column: "AttendeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JoinEvents_EventId",
-                table: "JoinEvents",
+                name: "IX_AttendeeEvents_EventId",
+                table: "AttendeeEvents",
                 column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Events_OrganizerId",
+                table: "Events",
+                column: "OrganizerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -139,7 +139,7 @@ namespace Inlamning1ASP.Migrations
                 name: "AttendeeEvent");
 
             migrationBuilder.DropTable(
-                name: "JoinEvents");
+                name: "AttendeeEvents");
 
             migrationBuilder.DropTable(
                 name: "Attendees");

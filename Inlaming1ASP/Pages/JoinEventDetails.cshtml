@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int}"
 @model Inlamning1ASP.Pages.JoinEventDetailsModel
 
 <div>
@@ -38,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./MyEvent" class="bg-dark text-light rounded shadow p-2 text-decoration-none">@Model.message</a> 
+    <a asp-page="./MyEvent" class="bg-dark text-light rounded shadow p-2 text-decoration-none">My Events</a> 
     <a asp-page="./Event" class="bg-dark text-light rounded shadow p-2 text-decoration-none">Back to Events</a>
 </div>

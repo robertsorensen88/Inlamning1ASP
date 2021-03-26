@@ -27,23 +27,29 @@ namespace Inlamning1ASP
             {
                 var context = scope.ServiceProvider.GetRequiredService<EventsDbContext>();
                 /*
-                             context.Attendees.AddRange(new List<Attendee>()
-                                 {
-                                     new Attendee(){Name="Roberta", Email="roberta@gmail.com", PhoneNumber="843749937"},
-                                 });
-                                 context.Events.AddRange(new List<Event>()
-                                 {
-                                     new Event(){Title="Iron Maiden", Description="Concert", Place="Ullevi", Date= new DateTime(2021,8,21), SpotsAvailable= 80 },
-                                     new Event(){Title="Metallica", Description="Concert", Place="Ullevi", Date= new DateTime(2021,6,21), SpotsAvailable= 80 },
-                                     new Event(){Title="Fotboll", Description="Fotbollsmatch", Place="Ullevi", Date= new DateTime(2021,3,21), SpotsAvailable= 80 },
-                                     new Event(){Title="SpeedWay", Description="VM", Place="Ullevi", Date= new DateTime(2021,5,21), SpotsAvailable= 80 },
-                                 });
-                                 context.Organizers.AddRange(new List<Organizer>()
-                                 {
-                                     new Organizer(){Name="GotiT", Email="gotit@email.com", PhoneNumber="836738847"},
-                                 });
-                               */
-
+                 if (context.Events.Any() && context.Attendees.Any() && context.Organizers.Any())
+                 {
+                    return;   
+                 }
+                 */
+                context.Attendees.AddRange(new List<Attendee>()
+                {
+                    new Attendee(){Name="Roberta", Email="roberta@gmail.com", PhoneNumber="843749937"},
+                });
+                                 
+                context.Events.AddRange(new List<Event>()
+                {
+                    new Event(){Title="Iron Maiden", Description="Concert", Place="Ullevi", Date= new DateTime(2021,8,21), SpotsAvailable= 80 },
+                    new Event(){Title="Metallica", Description="Concert", Place="Ullevi", Date= new DateTime(2021,6,21), SpotsAvailable= 80 },
+                    new Event(){Title="Fotboll", Description="Fotbollsmatch", Place="Ullevi", Date= new DateTime(2021,3,21), SpotsAvailable= 80 },
+                    new Event(){Title="SpeedWay", Description="VM", Place="Ullevi", Date= new DateTime(2021,5,21), SpotsAvailable= 80 },
+                });
+                                 
+                context.Organizers.AddRange(new List<Organizer>()
+                {
+                    new Organizer(){Name="GotiT", Email="gotit@email.com", PhoneNumber="836738847"},
+                });
+                               
                 context.SaveChanges();
             }
         }

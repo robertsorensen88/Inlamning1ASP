@@ -2,24 +2,24 @@
 @model Inlamning1ASP.Pages.MyEventModel
 
 <h1 class=" float-left">My Events</h1>
-<h1 class="float-right mr-4">@Model.JoinEvent[1].Attendee.Name</h1>
+<h1 class="float-right mr-4">@Model.AttendeeEvents[0].Attendee.Name</h1>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Title)
+                @Html.DisplayNameFor(model => model.AttendeeEvents[0].Event.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Place)
+                @Html.DisplayNameFor(model => model.AttendeeEvents[0].Event.Place)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JoinEvent[0].Event.Date)
+                @Html.DisplayNameFor(model => model.AttendeeEvents[0].Event.Date)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.JoinEvent)
+    @foreach (var item in Model.AttendeeEvents)
     {
         <tr>
             <td>

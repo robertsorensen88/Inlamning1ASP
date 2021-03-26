@@ -19,11 +19,11 @@ namespace Inlamning1ASP.Pages
             _context = context;
         }
 
-        public IList<JoinEvent> JoinEvent { get;set; }
+        public IList<AttendeeEvent> AttendeeEvents { get;set; }
 
         public async Task OnGetAsync()
         {
-            JoinEvent = await _context.JoinEvents
+            AttendeeEvents = await _context.AttendeeEvents
                 .Include(r => r.Attendee)
                 .Include(r => r.Event).ToListAsync();
         }

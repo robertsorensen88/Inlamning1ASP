@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Inlamning1ASP.Migrations
 {
     [DbContext(typeof(EventsDbContext))]
-    [Migration("20210325011247_initial")]
+    [Migration("20210326203339_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,28 @@ namespace Inlamning1ASP.Migrations
                     b.ToTable("Attendees");
                 });
 
+            modelBuilder.Entity("Inlamning1ASP.Models.AttendeeEvent", b =>
+                {
+                    b.Property<int>("AttendeeEventId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AttendeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AttendeeEventId");
+
+                    b.HasIndex("AttendeeId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("AttendeeEvents");
+                });
+
             modelBuilder.Entity("Inlamning1ASP.Models.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -90,28 +112,6 @@ namespace Inlamning1ASP.Migrations
                     b.HasIndex("OrganizerId");
 
                     b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("Inlamning1ASP.Models.JoinEvent", b =>
-                {
-                    b.Property<int>("JoinEventId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AttendeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.HasKey("JoinEventId");
-
-                    b.HasIndex("AttendeeId");
-
-                    b.HasIndex("EventId");
-
-                    b.ToTable("JoinEvents");
                 });
 
             modelBuilder.Entity("Inlamning1ASP.Models.Organizer", b =>
@@ -150,16 +150,7 @@ namespace Inlamning1ASP.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Inlamning1ASP.Models.Event", b =>
-                {
-                    b.HasOne("Inlamning1ASP.Models.Organizer", "Organizer")
-                        .WithMany("Events")
-                        .HasForeignKey("OrganizerId");
-
-                    b.Navigation("Organizer");
-                });
-
-            modelBuilder.Entity("Inlamning1ASP.Models.JoinEvent", b =>
+            modelBuilder.Entity("Inlamning1ASP.Models.AttendeeEvent", b =>
                 {
                     b.HasOne("Inlamning1ASP.Models.Attendee", "Attendee")
                         .WithMany()
@@ -176,6 +167,15 @@ namespace Inlamning1ASP.Migrations
                     b.Navigation("Attendee");
 
                     b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Inlamning1ASP.Models.Event", b =>
+                {
+                    b.HasOne("Inlamning1ASP.Models.Organizer", "Organizer")
+                        .WithMany("Events")
+                        .HasForeignKey("OrganizerId");
+
+                    b.Navigation("Organizer");
                 });
 
             modelBuilder.Entity("Inlamning1ASP.Models.Organizer", b =>
